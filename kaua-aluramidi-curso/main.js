@@ -1,5 +1,18 @@
-function tocaSom (idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
+function tocaSom (seletorAudio) {
+    const elemento = document.querySelector(seletorAudio);
+
+    if (elemento === null){
+        alert('elemento não encontrado');
+        console.log('elemento não encontrado');
+    }
+
+    if (elemento != null) {
+    if(elemento.localname === 'audio'){
+        elemento.play();
+    }
+        
+    }
+  
 }
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
@@ -23,7 +36,7 @@ for (let contador = 0; contador  < listaDeTeclas.length; contador++) {
         
     tecla.onkeydown = function (evento) {
 
-        console.log(evento.code == 'space')
+        console.log(evento.code == 'space' || evento.code === 'enter')
 
         if (evento.code === 'space') {
             tecla.classList.add('ativa');
